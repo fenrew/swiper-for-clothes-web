@@ -1,0 +1,66 @@
+.imageSliderMainContainer {
+    position: relative;
+    width: 75vw;
+}
+
+
+/* The animation code */
+@keyframes slider {
+    0%   {
+        top: -75vw;
+    }
+    15% {
+        top: 20vh;
+    }   
+    50% {
+        top: 20vh;
+    }
+    85% {
+        top: 20vh;
+    }
+    100% {
+        top: 100vh;
+        /* top: 20vh; */
+    }
+}
+    
+  /* The element to apply the animation to */
+.imageSliderAnimation {
+    animation-name: slider;
+    animation-duration: 2.2s;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+}
+
+.imageSliderImageContainer {
+    position: absolute;
+    top: -75vw;
+    /* top: 20vh; */
+    width: 75vw;
+    height: 75vw;
+    background-color: white;
+}
+
+.imageSliderImage {
+    width: 100%;
+    height: 100%;
+}
+
+.imageSliderTagContainer {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imageSliderPriceTag {
+    background-color: wheat;
+    padding: 2px 100px;
+    transform: rotate(45deg);
+}
+
+.imageSliderSalesTag {
+    background-color: red;
+    padding: 2px 100px;
+    transform: rotate(-45deg);
+}

@@ -1,24 +1,24 @@
 import './Reel.css'
-import SubHeader from './sub-header/SubHeader'
 import React, { useState, useEffect } from "react";
-import { getApiUrl, getImageUrl } from '../../helpers/fetching'
+import { getApiUrl } from '../../helpers/fetching'
+import SubHeader from './sub-header/SubHeader'
+import ImageSlider from './image-slider/ImageSlider';
 
 const Reel = (props) => {
     const [items, setItems] = useState(null)
 
     useEffect(() => {
-        fetchItems(props.user).then(resItems => {
-            console.log(resItems)
-            setItems(setItems)
+       fetchItems(props.user).then(resItems => {
+            setItems(resItems)
+        }).catch(err => {
+            console.error(err)
         })
     }, []);
 
     return (
         <div className='main-container'>
             <SubHeader />
-            <div>
-                <img src={getImageUrl('0c8737aab3b04b1ebe7df66bee0dbed6.webp')} style={{width: '100%'}}></img>
-            </div>
+            <ImageSlider className='reelImageSlider' items={items}></ImageSlider>
         </div>
     )
 }
